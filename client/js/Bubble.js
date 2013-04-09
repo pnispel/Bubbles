@@ -21,10 +21,6 @@ function animate () {
 
 Bubble = function ( name, text, date ) {
 
-	if ( !started ) {
-		animate();
-	}
-
 	this.position = new Vector2( Math.random() * window.innerHeight, Math.random() * window.innerWidth );
 	this.velocity = new Vector2( Math.random() * .1 - .1 , Math.random() * .1 - .1);
 	this.text = text;
@@ -43,6 +39,11 @@ Bubble = function ( name, text, date ) {
 	$( this.dom ).on( 'click', $.proxy( this.show, this ) );
 
 	BubbleList.push( this );
+
+	if ( !started ) {
+		animate();
+		started = true;
+	}
 
 	$( '.content' ).append( this.dom );
 
