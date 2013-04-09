@@ -1,0 +1,1 @@
+Bubbles = new Meteor.Collection('bubbles');

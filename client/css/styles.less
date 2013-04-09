@@ -1,0 +1,203 @@
+@brightblue: #00D9D9;
+@gray: #545454;
+@lightgray: #DEDFE0;
+
+@font: 'Lato', helvetica, arial, sans-serif;
+
+.border-radiuses (@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-webkit-border-top-right-radius:    @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius:  @bottomleft;
+	-webkit-border-top-left-radius:     @topleft;
+
+	-moz-border-radius-topright:        @topright;
+	-moz-border-radius-bottomright:     @bottomright;
+	-moz-border-radius-bottomleft:      @bottomleft;
+	-moz-border-radius-topleft:         @topleft;
+
+	border-top-right-radius:            @topright;
+	border-bottom-right-radius:         @bottomright;
+	border-bottom-left-radius:          @bottomleft;
+	border-top-left-radius:             @topleft;
+
+	-moz-background-clip:    padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip:         padding-box; 
+}
+
+
+body, html {
+	height: 100%;
+	font-family: @font;
+	font-size: 1em;
+}
+.content {
+	height: 100%;
+	background: url(images/logo.png) no-repeat center center;
+}
+#flyout {
+	height: 300px;
+	width: 100%;
+	background: @brightblue;
+	position: absolute;
+	-moz-transition: all .5s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	top: -255px;
+	form {
+		width: 90%;
+		max-width: 520px;
+		margin: 25px auto 20px;
+		h2 {
+			color: #ffffff;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+		input, textarea {
+			width: 100%;
+			padding: 10px 20px;
+			font-size: 1em;
+			color: @gray;
+			font-family: @font;
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			box-sizing: border-box; 
+			margin-bottom: 10px;
+		}
+		button {
+			width: 100%;
+			padding: 20px;
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			box-sizing: border-box; 
+			cursor: pointer;
+		}
+		
+	}
+	.addbubble {
+		padding: 15px;
+		color: #ffffff;
+		font-family: @font;
+		text-decoration: none;
+		text-align: center;
+		bottom: 0;
+		position: absolute;
+		display: block;
+		width: 97%;
+		z-index: 20;
+	}
+}
+/*
+#flyout:hover {
+	margin-top: 0;
+}*/
+.bubble {
+	position: absolute;
+}
+.bubble.small {
+	display: block;
+	width: 65px;
+	height: 93px;
+	background: url(images/small.png) no-repeat 10px top;
+	text-indent: -9999em;
+}
+.bubble.small:hover {
+	background: url(images/small.png) no-repeat right top;
+}
+.bubble.medium {
+	display: block;
+	width: 100px;
+	height: 119px;
+	background: url(images/medium.png) no-repeat 15px top;
+	text-indent: -9999em;
+}
+.bubble.medium:hover {
+	background: url(images/medium.png) no-repeat right top;
+}
+.bubble.large {
+	display: block;
+	width: 173px;
+	height: 199px;
+	background: url(images/large.png) no-repeat left top;
+	text-indent: -9999em;
+}
+.bubble.large:hover {
+	background: url(images/large.png) no-repeat right top;
+}
+div.overlay {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div.factbox {
+	position: absolute;
+	left: 25%;
+	top: 40%;
+	width: 50%;
+	.border-radiuses(4px, 4px, 4px, 4px);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	background: #ffffff;
+	p.heading {
+		background: @brightblue;
+		color: #ffffff;
+		padding: 15px;
+		.close {
+			float: right;
+			background: url(images/close.png) no-repeat top left;
+			width: 20px;
+			height: 20px;
+			text-indent: -9999em;
+		}
+	}
+	.content {
+		background: #ffffff;
+		padding: 10px;
+		overflow: hidden;
+		p.fact {
+			font-size: 1.3em;
+			text-align: center;
+			color: @gray;
+			width: 80%;
+			margin: 0 auto 20px;
+		}
+		.share {
+			float: left;
+			background: @lightgray;
+			color: #ffffff;
+			padding: 5px 10px;
+			.border-radiuses(4px, 4px, 4px, 4px);
+			cursor: pointer;
+		}
+		.author {
+			float: right;
+			font-size: .8em;
+			color: @lightgray;
+			padding-top: 12px;
+		}
+	}
+}
+
+@media all and (max-width: 700px) {
+  body {
+  	.factbox {
+	  	margin: 0 auto;
+	  	width: 90%;
+	  	top: 10%;
+	  	left: 5%;
+  	}
+  }
+}
+
+@media all and (max-width: 534px) {
+  body {
+    .content {
+	    background-size: contain;
+    }
+  }
+}

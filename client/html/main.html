@@ -1,0 +1,43 @@
+<body>
+	{{> main}}
+</body>
+
+<template name="form">
+	<div id="flyout">
+		<form>			
+			<h2>Add your bubble</h2>
+			<label>
+				<input type="text" placeholder="Name">
+			</label>
+			<label>
+				<textarea placeholder="Wee Bit of knowledge"></textarea>
+			</label>
+			<button>Send that bubble off!</button>
+		</form>
+		<a href="#" class="addbubble" id="addbubble">Add Bubble</a>
+	</div>
+</template>
+
+<template name="main">
+
+	<div class="popup" style="display:none;">
+		<div class="overlay"></div>
+		<div class="factbox">
+			<p class="heading"> <span class="factnum"></span><a href="#" class="close">Close</a></p>
+			<div class="content">
+				<p class="fact"></p>
+				<p class="author"></p>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		{{> form}}
+ 		{{#each bubble}}
+
+ 			{{ incrementPointer }}}
+ 			{{ createBubble bubble }}}
+
+ 		{{/each}}
+	</div>
+
+</template>
