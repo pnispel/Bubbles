@@ -9,6 +9,7 @@ function animate () {
 
 		var bub = BubbleList[i];
 		bub.velocity.randomize();
+		bub.velocity.check();
 		bub.position.check();
 		bub.position.add( bub.velocity );
 
