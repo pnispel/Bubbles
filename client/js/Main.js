@@ -3,12 +3,12 @@ var m_bubbleObjects = [];
 var m_pointer = 0;
 
 Template.main.bubble = function () {
-	return Bubbles.find();
+	return Bubbles.find({}, {limit: 100});
 };
 
-Template.main.createBubble = function ( bubble ) {
+Template.main.createBubble = function ( name, text, date ) {
 
-	m_bubbleObjects.push( new Bubble( bubble.fetch()[0] ) );
+	m_bubbleObjects.push( new Bubble( name, text, date ) );
 
 };
 
@@ -49,12 +49,10 @@ Template.main.events = {
 	},
 	'click .close' : function ( e ) {
 
-		$(".popup a.close").on("click", function(e){
-			$(this).parents(".popup").first().hide(); // Hide popup.
-			$("#overlay").hide(); // Hide overlay.
-			e.preventDefault();
-		});
-		
+		$( e.currentTarget ).parents(".popup").first().hide(); // Hide popup.
+		$("#overlay").hide(); // Hide overlay.
+		e.preventDefault();
+
 	}
 
 }

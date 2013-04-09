@@ -139,6 +139,7 @@ div.factbox {
   border: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
   background: #ffffff;
+  z-index: 100000;
 }
 div.factbox p.heading {
   background: #00d9d9;

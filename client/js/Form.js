@@ -11,6 +11,11 @@ Template.form.events = {
 		var name = $("input").val();
 		var text = $("textarea").val();
 
+		if ( name.length == 0  || text.length == 0 ) { return; }
+
+		$("input").val('');
+		$("textarea").val('');
+
 		Bubbles.insert( { name: name, text: text, date: Date.now() } );
 
 	}

@@ -19,16 +19,17 @@ function animate () {
 
 }
 
-Bubble = function ( bubbleObj ) {
+Bubble = function ( name, text, date ) {
 
 	if ( !started ) {
 		animate();
 	}
 
 	this.position = new Vector2( Math.random() * window.innerHeight, Math.random() * window.innerWidth );
-	this.velocity = new Vector2();
-	this.text = bubbleObj.text;
-	this.name = bubbleObj.name;
+	this.velocity = new Vector2( Math.random() * .1 - .1 , Math.random() * .1 - .1);
+	this.text = text;
+	this.name = name;
+	this.date = date;
 	this.id = Template.main.getPointer();
 
 	this.dom = document.createElement( 'a' );

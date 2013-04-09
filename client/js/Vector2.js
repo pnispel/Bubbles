@@ -3,6 +3,8 @@ Vector2 = function ( x, y ) {
 	this.x = x || 0;
 	this.y = y || 0;
 
+	this.randCount = 0;
+
 }
 
 Vector2.prototype.add = function ( v ) {
@@ -12,46 +14,45 @@ Vector2.prototype.add = function ( v ) {
 
 }
 
-var randCount = 0;
 Vector2.prototype.randomize = function () {
 
-	if (randCount > 140) {
+	if (this.randCount > 1000) {
 		var randx = Math.random() * (-.1 - .1) + .1;
 		var randy = Math.random() * (-.1 - .1) + .1;
 
-		if ( randx + this.x < .5 ) {
+		if ( randx + this.x < .2 ) {
 			this.x += randx;
 		} else {
 			this.x -= randx;
 		}
 
-		if ( randy + this.y < .5 ) {
+		if ( randy + this.y < .2 ) {
 			this.y += randy;
 		} else {
 			this.y -= randy;
 		}
 
-		randCount = 0;
+		this.randCount = 0;
 	}
 	
-	randCount++;
+	this.randCount++;
 
 }
 
 Vector2.prototype.check = function () {
 
-	if ( this.x < 0 ) {
-		this.x = window.innerWidth;
+	if ( this.x < -200 ) {
+		this.x = window.innerWidth + 200;
 	}
-	if ( this.x > window.innerWidth ) {
-		this.x = 0;
+	if ( this.x > window.innerWidth + 200 ) {
+		this.x = -200;
 	}
 
-	if ( this.y < 0 ) {
-		this.y = window.innerHeight;
+	if ( this.y < -200 ) {
+		this.y = window.innerHeight + 200;
 	}
-	if ( this.y > window.innerHeight ) {
-		this.y = 0;
+	if ( this.y > window.innerHeight + 200) {
+		this.y = -200;
 	}
 
 }
