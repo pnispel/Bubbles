@@ -16,24 +16,23 @@ Vector2.prototype.add = function ( v ) {
 
 Vector2.prototype.randomize = function () {
 
-	if (this.randCount > 1000) {
-		var randx = Math.random() * (-.1 - .1) + .1;
-		var randy = Math.random() * (-.1 - .1) + .1;
+	var randx = Math.random() * (-.001 - .001) + .001;
+	var randy = Math.random() * (-.001 - .001) + .001;
 
-		if ( randx + this.x < .2 ) {
-			this.x += randx;
-		} else {
-			this.x -= randx;
-		}
-
-		if ( randy + this.y < .2 ) {
-			this.y += randy;
-		} else {
-			this.y -= randy;
-		}
-
-		this.randCount = 0;
+	if ( randx + this.x < .1 ) {
+		this.x += randx;
+	} else {
+		this.x -= randx;
 	}
+
+	if ( randy + this.y < .1 ) {
+		this.y += randy;
+	} else {
+		this.y -= randy;
+	}
+
+	this.randCount = 0;
+	
 	
 	this.randCount++;
 
